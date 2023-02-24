@@ -186,23 +186,31 @@ Aşağıdaki işlemleri yapmak için indekseGoreFenomen işlevini kullanın:
 NOT: DÖNDÜĞÜNÜZ DİZİN YUKARIDAKİ BİÇİMLE EŞLEŞMESİ GEREKİR, YA DA TESTİ GEÇMEYECEKTİR!
 ÖRNEK: fenomenler dizisi ve 3 sayısı ile indekseGoreFenomen çağrılırsa, `3. indekste bulunan fenomen: Leo Messi' */
 
-function indekseGoreFenomen() {
-  
+function indekseGoreFenomen(fenomenler, sayi) {
+  console.log( sayi + ". indekste bulunan fenomen: " + fenomenler[sayi].profile);
 }
-
+indekseGoreFenomen(fenomenler, 9);
 
 
 /*  Görev 4:
 Aşağıdakileri yapmak için profilListesi'ni kullanın:
-1. fenomen dizisini bir parametreden argüman olarak alın
+1. fenomen dizisini bir parametreden argüman olarak alınF
 2. Parametre dizisini kopyalayarak yeni bir dizi oluşturun
 3. Yeni dizinin üzerinde dolaşın ve dizinin her bir indeksinde yalnızca fenomenin adına eşit olacak şekilde güncelleyin
 🌟 Dönüş ÖRNEĞİ: ["Instagram", "Cristiano Ronaldo", "Kylie"....]
 */
 
-function profilListesi(/*kod*/) {
-  /*kod*/
+function profilListesi(newArray) {
+  let yeniDizi = []
+  for(let i = 0 ; i < newArray.length ; i++){
+    yeniDizi.push(newArray[i].profile);   
+  }
+    
+  return yeniDizi;
+  console.log( yeniDizi );
 }
+console.log(profilListesi(fenomenler));
+
 
 
 
