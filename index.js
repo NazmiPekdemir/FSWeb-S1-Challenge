@@ -328,7 +328,7 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 
 
 function platformaGoreCokGonderiYapanFenomen(dizi, platform){
-  let fenomen;
+  let fenomen = "";
   let gonderi = 0;
   for(let i=0; i<dizi.length; i++){
     if(dizi[i].platform === platform && !(dizi[i].posts ==="NA") && dizi[i].posts > gonderi){
