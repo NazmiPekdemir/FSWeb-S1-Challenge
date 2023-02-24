@@ -187,7 +187,7 @@ NOT: DÖNDÜĞÜNÜZ DİZİN YUKARIDAKİ BİÇİMLE EŞLEŞMESİ GEREKİR, YA DA
 ÖRNEK: fenomenler dizisi ve 3 sayısı ile indekseGoreFenomen çağrılırsa, `3. indekste bulunan fenomen: Leo Messi' */
 
 function indekseGoreFenomen(fenomenler, sayi) {
-  console.log( sayi + ". indekste bulunan fenomen: " + fenomenler[sayi].profile);
+  return ( sayi + ". indekste bulunan fenomen: " + fenomenler[sayi].profile);
 }
 indekseGoreFenomen(fenomenler, 9);
 
@@ -205,10 +205,8 @@ function profilListesi(newArray) {
   for(let i = 0 ; i < newArray.length ; i++){
     yeniDizi.push(newArray[i].profile);   
   }
-    
-  return yeniDizi;
-  console.log( yeniDizi );
-}
+      return yeniDizi;
+  }
 console.log(profilListesi(fenomenler));
 
 
@@ -223,16 +221,27 @@ Aşağıdakileri yapmak için fenomenSil'i kullanın:
 5. Ortaya çıkan diziyi döndürün
 
 ÖRNEK: fenomenSil işlevi fenomenler dizisi ve 0 indeks sayısı ile çağrılırsa, veri kümemizden 'Instagram' kaldırılmış olarak döndürür. */
-function fenomenSil(/*kod*/) {
-  /*kod*/
+
+
+function fenomenSil(newArray,sayi) {
+  
+  let yeniDizi = [ ... newArray];
+
+  yeniDizi.splice(sayi,1);
+   
+  return yeniDizi;
 }
+console.log(fenomenSil(fenomenler,19));
+
+
 
 
 
 /* Görev 6:
 Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 1. ilk parametre olarak fenomenler dizisini alın
-2. İKİNCİ, ÜÇÜNCÜ, DÖRDÜNCÜ, BEŞİNCİ ve ALTINCI parametre olarak sırasıyla bir sırano (number), bir profil ismi (profile), takipçi sayısı (followers), gönderim sayısı  (posts) ve bir platform adı (platform) alın.
+2. İKİNCİ, ÜÇÜNCÜ, DÖRDÜNCÜ, BEŞİNCİ ve ALTINCI parametre olarak sırasıyla bir sırano (number), bir profil ismi (profile), takipçi sayısı (followers), gönderim sayısı  (posts) ve 
+bir platform adı (platform) alın.
 3. fenomenler dizisini bir kopyasını oluşturun.
 4. Aşağıdaki formatta bir nesne oluşturun:
   {
@@ -246,8 +255,21 @@ Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 
 ÖRNEK: fenomenEkle(fenomenler, 6, "Workintech", 10000000, 2022, "Instagram") çağrıldığında dizinin sonuna yukarıdaki nesne en sona eklenerek yeni fenomenler dizisini döndürmelidir. */
 
-function fenomenEkle(/*kod*/) {
-  /*kod*/
+function fenomenEkle(newArray, sirano, profil, takipci, gonderi, plat) {
+  let yeniDizi = [...newArray]
+
+  let newObj = {
+    "number": sirano,
+    "profile": profil,
+    "followers": takipci,
+    "posts": gonderi,
+    "platform": plat,
+
+  }
+
+  yeniDizi.push(newObj);
+  return yeniDizi;
+  
 }
 
 
@@ -259,8 +281,16 @@ Aşağıdakileri yapmak için enFenomenler'yi kullanın:
 ÖRNEK: enFenomenler(fenomenler) çağrıldığında sonuç olarak ["Instagram", "Cristiano Ronaldo", ... "Khabane lame"] dönemelidir
 */
 
-function enFenomenler(/*kod*/) {
-  /*kod*/
+function enFenomenler(newArray) {
+  let yenidizi = [];
+   
+  for(let i = 0; i < newArray.length; i++) {
+    if((newArray[i]).followers > 100000000) {
+      yenidizi.push(newArray[i].profile);
+    }
+  }
+
+return yenidizi;
 }
 
 
@@ -273,9 +303,15 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 ÖRNEK: fenomenGonderimSayisi(fenomenler, 'Will Smith') çağrıldığında "136" dönmelidir
 */
 
-function fenomenGonderimSayisi(/*kod*/){
-  /*kod*/
+function fenomenGonderimSayisi(newArray,profil){
+  for(let i = 0; i < newArray.length; i++) {
+    if(newArray[i].profile === (profil)){
+      return newArray[i].posts
+    }
+  }
 }
+  
+
 
 
 
