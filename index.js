@@ -326,9 +326,19 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 Örnek: platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') çağrıldığında "charli damelio" dönmelidir
 */
 
-function platformaGoreCokGonderiYapanFenomen(/*kod*/){
-  /*kod*/
+
+function platformaGoreCokGonderiYapanFenomen(dizi, platform){
+  let fenomen;
+  let gonderi = 0;
+  for(let i=0; i<dizi.length; i++){
+    if(dizi[i].platform === platform && !(dizi[i].posts ==="NA") && dizi[i].posts > gonderi){
+      gonderi= dizi[i].posts;
+      fenomen =dizi[i].profile;
+      }
+  }
+  return fenomen;
 }
+console.log(platformaGoreCokGonderiYapanFenomen(fenomenler, "Instagram"));
 
 
 
